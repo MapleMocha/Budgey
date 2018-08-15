@@ -8,8 +8,6 @@ Budgey is a dynamic and intuitive budgeting app for those looking for a way to e
 
 ## Final Product
 
-[pics - maybe 3? Landing, dashboard, and either income or expense table? ]
-
 !['ScreenShot of Budgey Landing Page'](https://github.com/MapleMocha/Budgey/blob/master/public/app_screenshots/landing_page.png)
 !['ScreenShot of Budgey Dashboard'](https://github.com/MapleMocha/Budgey/blob/master/public/app_screenshots/dashboard.png)
 !['ScreenShot of Budgey Income Page'](https://github.com/MapleMocha/Budgey/blob/master/public/app_screenshots/income_category.png)
