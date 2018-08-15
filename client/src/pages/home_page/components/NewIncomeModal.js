@@ -3,8 +3,9 @@ import "./NewIncomeModal.css";
 import axios from "axios";
 
 class NewIncomeModal extends Component {
-  handleClick = event => {
+  handleSubmit = event => {
     event.preventDefault();
+
     const category = {
       name: event.target.categoryName.value,
       board_type: "income",
@@ -13,30 +14,28 @@ class NewIncomeModal extends Component {
       user_id: localStorage.getItem('currUser_id'),
     };
 
-    axios.post(`/api/v1/category.json`, { category }).then(res => {
-      this.props.update();
-      this.props.close();
-    });
+    axios.post(`/api/v1/category.json`, { category })
+         .then(res => {
+           this.props.update();
+           this.props.close();
+         });
   };
 
   render() {
     const { component: Component, ...props } = this.props;
     return (
-      <form onSubmit={this.handleClick}>
+      <form onSubmit={this.handleSubmit}>
         <h4 className="py-4">Add new Income category:</h4>
+
         <div className="form-group row px-4">
           <label htmlFor="categoryName" className="col-sm-3 col-form-label">
             Income Source Name:
           </label>
           <div className="col-sm-9">
-            <input
-              type="text"
-              className="form-control"
-              id="categoryName"
-              placeholder="Income Source"
-            />
+            <input type="text" className="form-control" id="categoryName" placeholder="Income Source" />
           </div>
         </div>
+
         <div className="form-group row px-4">
           <div className="col-sm-12">
             <button type="submit" className="btn btn-outline-primary px-4">
@@ -44,6 +43,7 @@ class NewIncomeModal extends Component {
             </button>
           </div>
         </div>
+
       </form>
     );
   }

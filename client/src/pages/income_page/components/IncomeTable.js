@@ -12,6 +12,20 @@ class IncomeTable extends Component {
     };
   }
 
+  deleteEntryButton = (entry) => {
+    const deleteEntryMessage = "Are you sure you want to delete this expense entry?\nYou will not be able to undo this action.";
+    return (
+      <button type="button" className="btn btn-danger delete-btn entryDelete"
+        onClick={(e) => {
+          if (window.confirm(deleteEntryMessage)) {
+            this.deleteEntry(entry);
+          }
+        }} >
+        <FontAwesomeIcon icon="trash" />
+      </button>
+    )
+  }
+
   makeEntryRow = entries => {
     let count = 0;
     const allRows = entries.map(entry => {
@@ -23,30 +37,14 @@ class IncomeTable extends Component {
           <td>{entry.date}</td>
           <td>$ {entry.amount}</td>
           <td>{entry.description}</td>
-          <td>
-            <button
-              type="button"
-              className="btn btn-danger delete-btn entryDelete"
-              onClick={(e) => {
-                if (window.confirm("Are you sure you want to delete this expense entry?\nYou will not be able to undo this action.")) {
-                  this.deleteEntry(entry.id);
-                }
-              }}
-            >
-              <FontAwesomeIcon icon="trash" />
-            </button>
-          </td>
+          <td>{this.deleteEntryButton(entry.id)}</td>
         </tr>
       );
     });
     return allRows;
   };
 
-  deleteCategory = event => {
-    event.preventDefault();
-
-    const category_id = this.props.id;
-
+  deleteCategory = category_id => {
     axios.delete(`/api/v1/category/${category_id}`).then(res => {
       this.props.updateHome();
       this.setState({
@@ -64,6 +62,8 @@ class IncomeTable extends Component {
 
   render() {
     const { component: Component, ...props } = this.props;
+    const deleteCategoryMessage = "Are you sure you want to delete this entire category?\nThis will result in the loss of all your expense entry data.\nYou will not be able to undo this action.";
+
     if (this.state.deleted) {
       return <Redirect to="/home" />;
     }
@@ -83,16 +83,12 @@ class IncomeTable extends Component {
             </thead>
             <tbody>{this.makeEntryRow(props.entries)}</tbody>
           </table>
-          <br />
-          <button
-            type="button"
-            className="btn btn-outline-danger delete-btn"
+          <button type="button" className="btn btn-outline-danger delete-btn"
             onClick={(e) => {
-              if (window.confirm("Are you sure you want to delete this entire category?\nThis will result in the loss of all your expense entry data.\nYou will not be able to undo this action.")) {
-                this.deleteCategory(e);
+              if (window.confirm(deleteCategoryMessage)) {
+                this.deleteCategory(props.id);
               }
-            }}
-          >
+            }} >
             Delete Category
           </button>
         </div>

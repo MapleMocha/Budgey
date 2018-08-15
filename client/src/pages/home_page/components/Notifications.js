@@ -28,7 +28,7 @@ class Notification extends Component {
         5000
       );
     })
-    
+
   };
 
   render() {

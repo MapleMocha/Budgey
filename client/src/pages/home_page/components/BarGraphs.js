@@ -4,8 +4,10 @@ import { Progress } from "reactstrap";
 
 class BarGraphs extends Component {
   render() {
+    
     const card = this.props.card;
     const percentage = (card.current_total / card.goal) * 100;
+
     let barColor = "success";
     if (percentage > 100) {
       barColor = "danger";

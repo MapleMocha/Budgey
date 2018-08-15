@@ -4,6 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import "./Rundown.css";
 import NumberFormat from "react-number-format";
 
+
 const renderContent = (income, expenses) => {
 
   const amount_left = (income - expenses).toFixed(2);
@@ -15,30 +16,22 @@ const renderContent = (income, expenses) => {
 
   return(
     <div>
+
       <div className="rundown-income d-flex bd-highlight mx-5">
         <div className="mr-auto bd-highlight">
           <h6>Income</h6>
         </div>
         <div className="ml-auto bd-highlight" id="total-income">
-          <NumberFormat
-            value={`${income.toFixed(2)}`}
-            displayType={"text"}
-            thousandSeparator={true}
-            prefix={"$"}
-          />
+          <NumberFormat value={`${income.toFixed(2)}`} displayType={"text"} thousandSeparator={true} prefix={"$"} />
         </div>
       </div>
+
       <div className="rundown-spending d-flex bd-highlight mx-5">
         <div className="mr-auto bd-highlight">
           <h6>Spending</h6>
         </div>
         <div className="ml-auto bd-highlight" id="total-expenses">
-          <NumberFormat
-            value={`${expenses.toFixed(2)}`}
-            displayType={"text"}
-            thousandSeparator={true}
-            prefix={"-$"}
-          />
+          <NumberFormat value={`${expenses.toFixed(2)}`} displayType={"text"} thousandSeparator={true} prefix={"-$"} />
         </div>
       </div>
 
@@ -50,18 +43,15 @@ const renderContent = (income, expenses) => {
         </div>
         <div className="ml-auto bd-highlight">
           <p id="amount-left" style={{ color: color }}>
-            <NumberFormat
-              value={`${amount_left}`}
-              displayType={"text"}
-              thousandSeparator={true}
-              prefix={"$"}
-            />
+            <NumberFormat value={`${amount_left}`} displayType={"text"} thousandSeparator={true} prefix={"$"} />
           </p>
         </div>
       </div>
-      </div>
+
+    </div>
   )
 }
+
 
 class Rundown extends Component {
   render() {

@@ -20,44 +20,32 @@ class HomePage extends Component {
   render() {
     const { component: Component, ...props } = this.props;
 
-    if (
-      !localStorage.getItem("jwtToken") &&
-      !localStorage.getItem("fbToken") &&
-      !localStorage.getItem("googleToken")
-    ) {
+    if (!localStorage.getItem("currUser_id")) {
       return <Redirect to="/login" />;
     }
+    
     return (
       <Container className="mt-3">
+
         <Row>
           <div className="col-md-3" id="left-div">
-            <IncomeBoard
-              categories={props.categories}
-              update={props.update}
-              {...props}
-            />
-            <Rundown
-              categories={props.categories}
-              update={props.update}
-              {...props}
-            />
+            <IncomeBoard categories={props.categories} update={props.update} {...props} />
+            <Rundown categories={props.categories} update={props.update} {...props} />
           </div>
+
           <div className="col-md-9" id="right-div">
-          <Notifications categories={props.categories} />
+            <Notifications categories={props.categories} />
             <div>
               <Summary categories={props.categories} update={props.update} />
-
             </div>
             <div>
-              <ExpenseBoard
-                categories={props.categories}
-                update={props.update}
-                {...props}
-              />
+              <ExpenseBoard categories={props.categories} update={props.update} {...props} />
             </div>
           </div>
+
         </Row>
         <Footer />
+
       </Container>
     );
   }

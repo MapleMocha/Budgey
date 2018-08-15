@@ -12,13 +12,11 @@ class Navbar extends Component {
   };
 
   render() {
-    let user = localStorage.getItem("jwtToken");
-    let fbUser = localStorage.getItem("fbToken");
-    let googleUser = localStorage.getItem("googleToken");
+    let user = localStorage.getItem("currUser_id");
     let loginLogout;
     let navbarBrand;
     let signup;
-    if (user || fbUser || googleUser) {
+    if (user) {
       loginLogout = (
         <NavLink to="/">
           <div className="navbar-right-div btn logout" onClick={this.logout}>

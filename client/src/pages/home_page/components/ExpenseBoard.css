@@ -1,6 +1,6 @@
 #expense-card-container {
   height: 100%;
-  max-height: 300px;
+  max-height: 500px;
   overflow-y: scroll;
   padding-right: 15px;
 }
@@ -21,4 +21,8 @@
 .quick-entry-btn {
   font-size: 13px;
   font-weight: 600;
+}
+
+.category-btn {
+  margin-bottom: 60px;
 }

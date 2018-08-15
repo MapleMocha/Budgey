@@ -70,9 +70,7 @@ class App extends Component {
                 <Route exact path="/" component={LandingPage} />
                 <Route path="/signup" component={SignupPage} />
                 <Route path="/login" component={LoginPage} />
-                <Route
-                  path="/home"
-                  render={props => (
+                <Route path="/home" render={props => (
                     <HomePage
                       categories={this.state.categories}
                       update={this.update.bind(this)}
@@ -80,9 +78,7 @@ class App extends Component {
                     />
                   )}
                 />
-                <Route
-                  path="/expense/:id"
-                  render={props => (
+                <Route path="/expense/:id" render={props => (
                     <ExpensePage
                       categories={this.state.categories}
                       update={this.update.bind(this)}
@@ -90,9 +86,7 @@ class App extends Component {
                     />
                   )}
                 />
-                <Route
-                  path="/income/:id"
-                  render={props => (
+                <Route path="/income/:id" render={props => (
                     <IncomePage
                       categories={this.state.categories}
                       update={this.update.bind(this)}
