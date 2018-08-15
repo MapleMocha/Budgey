@@ -13,13 +13,12 @@ Budgey is a dynamic and intuitive budgeting app for those looking for a way to e
 !['ScreenShot of Budgey Income Page'](https://github.com/MapleMocha/Budgey/blob/master/public/app_screenshots/income_category.png)
 
 ## Getting Started
-Fork this repository and clone to make your own
-In the root directory, install backend dependencies with “bundle install”
-cd into the “client” directory and install frontend dependencies with “npm install”
-If you notice errors coming from any dependencies try a direct install using npm -i [dependency name]
-Back in the root directory run “rails db:setup”
-Open two terminals and run “rails -s p 3001 -b 0.0.0.0” from the root directory in one, and cd into the “client” and “npm start” in the other
-Can be found at/will run on localhost:3000 in your browser
+ 1. Fork this repository and clone to make your own
+ 2. In the root directory, install backend dependencies with “bundle install”
+ 3. cd into the “client” directory and install frontend dependencies with “npm install” (if you notice errors coming from any dependencies try a direct install using npm -i [dependency name])
+ 4. Back in the root directory run “rails db:setup”
+ 5. Open two terminals and run “rails -s p 3001” from the root directory in one, and cd into the “client” and “npm start” in the other
+ 6. Can be found at/will run on localhost:3000 in your browser
 
 ## Tech Stack/Dependencies
  - React.JS
